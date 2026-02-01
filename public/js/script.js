@@ -261,7 +261,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('success') === 'true') {
         alert(form_translations[language].confirmation);
-        // Clean up URL
+        // Clean up URL (no state needed, just removing the parameter)
         window.history.replaceState({}, document.title, window.location.pathname);
     }
     
