@@ -110,7 +110,7 @@ const form_translations = {
     }
 };
 
-let language = "english"; // Default language is English
+let language = "norwegian"; // Default language is English
 const no_button = document.getElementById('no-button');
 const yes_button = document.getElementById('yes-button');
 let i = 1;
