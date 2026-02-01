@@ -197,6 +197,10 @@ function changeLanguage() {
     if (clicks === 0) {
         no_button.innerHTML = answers_no[language][0];
     } else {
+        // Add bounds checking to prevent undefined
+        if (clicks >= answers_no[language].length) {
+            clicks = answers_no[language].length - 1;
+        }
         no_button.innerHTML = answers_no[language][clicks];
     }
 
@@ -253,6 +257,14 @@ function updateFormLanguage() {
 
 // Handle form submission with FormSubmit
 document.addEventListener('DOMContentLoaded', function() {
+    // Check for success parameter in URL
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('success') === 'true') {
+        alert(form_translations[language].confirmation);
+        // Clean up URL (no state needed, just removing the parameter)
+        window.history.replaceState({}, document.title, window.location.pathname);
+    }
+    
     const form = document.getElementById('preferences-form');
     if (form) {
         form.addEventListener('submit', async function(e) {
@@ -272,10 +284,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Send to FormSubmit
                 const response = await fetch(form.action, {
                     method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
+                    body: formData
                 });
                 
                 if (response.ok) {
