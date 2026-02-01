@@ -87,3 +87,73 @@ body {
   background-color: #ff1493;
   transform: scale(1.05);
 }
+
+.review-form {
+  margin-top: 30px;
+  display: none; /* Hidden by default, show after clicking "Yes" */
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.review-form h3 {
+  margin-bottom: 20px;
+  color: #ff69b4;
+  font-size: 1.5em;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ffb6c1;
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #ff69b4;
+  box-shadow: 0 0 5px rgba(255, 105, 180, 0.3);
+}
+
+#submit-preferences {
+  background-color: #ff69b4;
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+#submit-preferences:hover:not(:disabled) {
+  background-color: #ff1493;
+  transform: scale(1.05);
+}
+
+#submit-preferences:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
