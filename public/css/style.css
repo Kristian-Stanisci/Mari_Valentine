@@ -9,6 +9,19 @@ body {
     flex-direction: column;
 }
 
+/* Banner image styling */
+.banner-gif img, #banner {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Hide message container by default */
+.message {
+    display: none;
+}
+
 .buttons {
     display: flex;
     justify-content: center;
