@@ -44,13 +44,13 @@ body {
     justify-content: center;
     margin-top: 20px;
     flex-direction: row;
-    align-items: end;
+    align-items: flex-end;
     flex-wrap: wrap;
     gap: 10px;
 }
 
 #yes-button {
-    margin: 0 10px;
+    margin: 10px 10px 0;
     color: white;
     background-color: #4CAF50;
     height: 50px;
@@ -58,7 +58,6 @@ body {
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    margin-top: 10px;
     transition: all 0.3s ease;
     font-size: 16px;
     font-weight: bold;
@@ -71,19 +70,17 @@ body {
 
 #yes-button p {
     margin: 0;
-    object-fit: contain;
 }
 
 #no-button {
-    margin: 0 10px;
+    margin: 10px 10px 0;
     color: white;
     background-color: red;
-    height: 40px !important;
+    height: 40px;
     width: auto;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    margin-top: 10px;
     padding: 0 20px;
     transition: all 0.3s ease;
 }
@@ -95,7 +92,6 @@ body {
 
 #no-button p {
     margin: 0;
-    object-fit: contain;
 }
 
 .message {
@@ -243,5 +239,13 @@ body {
   
   #yes-button, #no-button {
     margin: 5px 0;
+  }
+  
+  .review-form {
+    padding: 15px;
+  }
+  
+  .language-selector {
+    padding: 15px;
   }
 }
