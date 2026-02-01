@@ -7,6 +7,36 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.banner-gif {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#banner {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#question-heading {
+    font-size: 2em;
+    color: #ff69b4;
+    margin: 20px 0;
+    font-weight: bold;
 }
 
 .buttons {
@@ -16,6 +46,32 @@ body {
     flex-direction: row;
     align-items: end;
     flex-wrap: wrap;
+    gap: 10px;
+}
+
+#yes-button {
+    margin: 0 10px;
+    color: white;
+    background-color: #4CAF50;
+    height: 50px;
+    width: 50px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#yes-button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+#yes-button p {
+    margin: 0;
+    object-fit: contain;
 }
 
 #no-button {
@@ -25,73 +81,45 @@ body {
     height: 40px !important;
     width: auto;
     border: none;
+    border-radius: 8px;
     cursor: pointer;
     margin-top: 10px;
+    padding: 0 20px;
+    transition: all 0.3s ease;
+}
 
-    p {
-        margin: 0;
-        object-fit: contain;
-    }
+#no-button:hover {
+    background-color: #cc0000;
+    transform: scale(1.05);
+}
+
+#no-button p {
+    margin: 0;
+    object-fit: contain;
+}
+
+.message {
+    display: none;
+    margin-top: 30px;
+    text-align: center;
+}
+
+#success-message {
+    color: #ff69b4;
+    font-size: 1.8em;
+    margin-bottom: 20px;
 }
 
 .review-form {
   margin-top: 30px;
-  display: none; 
-}
-
-.review-form h3 {
-  margin-bottom: 20px;
-  color: #ff69b4;
-}
-
-.form-group {
-  margin-bottom: 15px;
-  text-align: left;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: #333;
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 10px;
-  border: 2px solid #ffb6c1;
-  border-radius: 8px;
-  font-size: 14px;
-  box-sizing: border-box;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: #ff69b4;
-}
-
-#submit-preferences {
-  background-color: #ff69b4;
-  color: white;
-  padding: 12px 30px;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  font-size: 16px;
-  margin-top: 10px;
-}
-
-#submit-preferences:hover {
-  background-color: #ff1493;
-  transform: scale(1.05);
-}
-
-.review-form {
-  margin-top: 30px;
-  display: none; /* Hidden by default, show after clicking "Yes" */
+  display: none;
   animation: fadeIn 0.5s ease-in;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  background-color: #fff5f8;
+  border-radius: 10px;
 }
 
 @keyframes fadeIn {
@@ -156,4 +184,64 @@ body {
 #submit-preferences:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+.language-selector {
+  margin-top: 30px;
+  text-align: center;
+  padding: 20px;
+}
+
+.language-selector label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #333;
+  font-size: 1.1em;
+}
+
+.language-selector select {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 2px solid #ff69b4;
+  border-radius: 8px;
+  background-color: white;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.language-selector select:hover {
+  border-color: #ff1493;
+  background-color: #fff5f8;
+}
+
+.language-selector select:focus {
+  outline: none;
+  border-color: #ff1493;
+  box-shadow: 0 0 5px rgba(255, 105, 180, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #question-heading {
+    font-size: 1.5em;
+  }
+  
+  .container {
+    padding: 10px;
+  }
+  
+  #banner {
+    max-width: 90%;
+  }
+  
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #yes-button, #no-button {
+    margin: 5px 0;
+  }
 }
