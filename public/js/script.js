@@ -58,6 +58,55 @@ answers_yes = {
     "norwegian": "Ja"
 }
 
+// Form translations
+const form_translations = {
+    english: {
+        heading: "Tell me your preferences! 💕",
+        restaurant: "Favorite Restaurant:",
+        restaurant_placeholder: "Where would you like to go?",
+        snacks: "Favorite Snacks:",
+        snacks_placeholder: "What snacks do you love?",
+        drinks: "Favorite Drinks:",
+        drinks_placeholder: "What's your favorite drink?",
+        activity: "Favorite Activity:",
+        activity_placeholder: "What would you like to do together?",
+        notes: "Additional Notes:",
+        notes_placeholder: "Anything else you'd like to share?",
+        submit: "Submit",
+        confirmation: "Thank you! Your preferences have been saved 💕"
+    },
+    italian: {
+        heading: "Dimmi le tue preferenze! 💕",
+        restaurant: "Ristorante Preferito:",
+        restaurant_placeholder: "Dove vorresti andare?",
+        snacks: "Snack Preferiti:",
+        snacks_placeholder: "Quali snack ami?",
+        drinks: "Bevande Preferite:",
+        drinks_placeholder: "Qual è la tua bevanda preferita?",
+        activity: "Attività Preferita:",
+        activity_placeholder: "Cosa ti piacerebbe fare insieme?",
+        notes: "Note Aggiuntive:",
+        notes_placeholder: "Altro che vorresti condividere?",
+        submit: "Invia",
+        confirmation: "Grazie! Le tue preferenze sono state salvate 💕"
+    },
+    norwegian: {
+        heading: "Fortell meg dine preferanser! 💕",
+        restaurant: "Favorittrestaurant:",
+        restaurant_placeholder: "Hvor vil du dra?",
+        snacks: "Favorittsnacks:",
+        snacks_placeholder: "Hvilke snacks liker du?",
+        drinks: "Favorittdrikker:",
+        drinks_placeholder: "Hva er favorittdrikken din?",
+        activity: "Favorittaktivitet:",
+        activity_placeholder: "Hva vil du gjøre sammen?",
+        notes: "Tilleggsnotater:",
+        notes_placeholder: "Noe annet du vil dele?",
+        submit: "Send inn",
+        confirmation: "Takk! Preferansene dine er lagret 💕"
+    }
+};
+
 let language = "english"; // Default language is English
 const no_button = document.getElementById('no-button');
 const yes_button = document.getElementById('yes-button');
@@ -106,6 +155,13 @@ yes_button.addEventListener('click', () => {
     // show message div
     let message = document.getElementsByClassName('message')[0];
     message.style.display = "block";
+    
+    // NEW: Show the review form
+    let reviewForm = document.getElementById('review-form');
+    reviewForm.style.display = "block";
+    
+    // Update form language
+    updateFormLanguage();
 });
 
 function refreshBanner() {
@@ -150,4 +206,73 @@ function changeLanguage() {
     } else {
         successMessage.textContent = "Yepppie, see you sooonnn :3";
     }
+    
+    // NEW: Update form language if it's visible
+    updateFormLanguage();
 }
+
+// NEW FUNCTION: Update form text based on selected language
+function updateFormLanguage() {
+    const trans = form_translations[language];
+    
+    // Update heading
+    const formHeading = document.querySelector('#review-form h3');
+    if (formHeading) formHeading.textContent = trans.heading;
+    
+    // Update labels and placeholders
+    const labels = {
+        'restaurant': trans.restaurant,
+        'snacks': trans.snacks,
+        'drinks': trans.drinks,
+        'activity': trans.activity,
+        'notes': trans.notes
+    };
+    
+    const placeholders = {
+        'restaurant': trans.restaurant_placeholder,
+        'snacks': trans.snacks_placeholder,
+        'drinks': trans.drinks_placeholder,
+        'activity': trans.activity_placeholder,
+        'notes': trans.notes_placeholder
+    };
+    
+    for (let field in labels) {
+        const label = document.querySelector(`label[for="${field}"]`);
+        const input = document.getElementById(field);
+        if (label) label.textContent = labels[field];
+        if (input) input.placeholder = placeholders[field];
+    }
+    
+    // Update submit button
+    const submitBtn = document.getElementById('submit-preferences');
+    if (submitBtn) submitBtn.textContent = trans.submit;
+}
+
+// NEW FUNCTION: Handle form submission
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('preferences-form');
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const preferences = {
+                restaurant: document.getElementById('restaurant').value,
+                snacks: document.getElementById('snacks').value,
+                drinks: document.getElementById('drinks').value,
+                activity: document.getElementById('activity').value,
+                notes: document.getElementById('notes').value,
+                timestamp: new Date().toISOString()
+            };
+            
+            // For now, just log the data (we'll add API integration next)
+            console.log('Preferences submitted:', preferences);
+            
+            // Show confirmation
+            alert(form_translations[language].confirmation);
+            
+            // TODO: Send data to backend/API here
+            // We'll add this in the next step
+        });
+    }
+});
