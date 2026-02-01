@@ -16,46 +16,46 @@ const answers_no = {
         "I am begging you to stop!",
         "Ok, Let's just start over.."
     ],
-    french: [
-        "Non",
-        "Tu es sûr ?",
-        "Tu es vraiment sûr ??",
-        "Tu es vraiment vraiment sûr ???",
-        "Réfléchis encore?",
-        "Tu ne crois pas aux deuxièmes chances ?",
-        "Pourquoi tu es si froid?",
-        "Peut-être, on peut en parler ?",
-        "Je ne vais pas demander encore une fois!",
-        "D'accord, maintenant ca me fait mal!",
-        "Tu es juste méchant!",
-        "Pourquoi tu me fais ça?",
-        "Donnez-moi une chance plz!",
-        "Je te supplie d'arrêter!",
-        "D'accord, recommençons.."
+    italian: [
+         "No",
+         "Sei sicura?",
+         "Sei davvero sicura??",
+         "Sei davvero davvero sicura???",
+         "Ripensaci?",
+         "Non credi nelle seconde possibilità?",
+         "Perché sei così fredda?",
+         "Forse possiamo parlarne?",
+         "Non te lo chiederò di nuovo!",
+         "Ok ora mi stai ferendo!",
+         "Stai solo essendo cattiva!",
+         "Perché mi stai facendo questo?",
+         "Per favore dammi una possibilità!",
+         "Ti prego di smettere!",
+         "Ok, ricominciamo da capo.."
     ],
-    thai: [
-        "ไม่อ่ะ",
-        "แน่ใจจริงๆหรอคะ?",
-        "แน่ใจจริงๆ จริงๆนะคะ?",
-        "อย่าบอกนะว่านี่แน่ใจสุดๆแล้วจริงๆ ?",
-        "ลองคิดดูอีกทีหน่อยสิคะ..",
-        "ขอโอกาศที่สองทีค่ะ..",
-        "อย่าเย็นชาสิคะ กระซิกๆ",
-        "ขอร้องนะคะ",
-        "น้าาาๆๆๆๆๆ",
-        "เราจะร้องไห้เอานะ กระซิกๆ",
-        "จะเอางี้ๆจริงหรอคะ",
-        "ฮือออออ",
-        "ขอโอกาศครั้งที่สองที่ค่ะ!",
-        "ขอร้องละค่าาา",
-        "โอเคค่ะ.. งั้นเริ่มใหม่ !"
-    ]
+   norwegian: [
+         "Nei",
+         "Er du sikker?",
+         "Er du virkelig sikker??",
+         "Er du virkelig virkelig sikker???",
+         "Tenk igjen?",
+         "Tror du ikke på andre sjanser?",
+         "Hvorfor er du så kald?",
+         "Kanskje vi kan snakke om det?",
+         "Jeg kommer ikke til å spørre igjen!",
+         "Ok nå sårer du følelsene mine!",
+         "Du er bare slem nå!",
+         "Hvorfor gjør du dette mot meg?",
+         "Vennligst gi meg en sjanse!",
+         "Jeg ber deg om å stoppe!",
+         "Ok, la oss bare starte på nytt.."
+     ]
 };
 
 answers_yes = {
     "english": "Yes",
-    "french": "Oui",
-    "Thailand": "เย่ คืนดีกันแล้วน้า"
+    "italian": "Sì",
+    "norwegian": "Ja"
 }
 
 let language = "english"; // Default language is English
@@ -123,10 +123,10 @@ function changeLanguage() {
 
     // Update question heading
     const questionHeading = document.getElementById("question-heading");
-    if (language === "french") {
-        questionHeading.textContent = "Tu veux être mon valentin?";
-    } else if (language === "thai") {
-        questionHeading.textContent = "คืนดีกับเราได้อ่ะป่าว?";
+    if (language === "italian") {
+        questionHeading.textContent = "Vuoi essere la mia valentina?";
+    } else if (language === "norwegian") {
+        questionHeading.textContent = "Vil du være valentinen min?";
     } else {
         questionHeading.textContent = "Will you be my valentine?";
     }
@@ -143,10 +143,10 @@ function changeLanguage() {
 
     // Update success message
     const successMessage = document.getElementById("success-message");
-    if (language === "french") {
-        successMessage.textContent = "Yepppie, à bientôt :3";
-    } else if (language === "thai") {
-        successMessage.textContent = "ฮูเร่ คืนดีกันแล้วน้า :3";
+    if (language === "italian") {
+        successMessage.textContent = "Sììì, ci vediamo presto :3";
+    } else if (language === "norwegian") {
+        successMessage.textContent = "Jaaaa, sees snart Mari. Æ ælskeee dæ. :3";
     } else {
         successMessage.textContent = "Yepppie, see you sooonnn :3";
     }
