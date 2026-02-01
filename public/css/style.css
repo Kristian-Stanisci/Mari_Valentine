@@ -56,14 +56,13 @@ h1 {
 }
 
 #no-button {
-    margin: 0 10px;
+    margin: 10px 10px 0;
     color: white;
     background-color: red;
     height: 40px !important;
     width: auto;
     border: none;
     cursor: pointer;
-    margin-top: 10px;
 
     p {
         margin: 0;
@@ -72,7 +71,7 @@ h1 {
 }
 
 #yes-button {
-    margin: 0 10px;
+    margin: 10px 10px 0;
     color: white;
     background-color: green;
     height: 50px;
@@ -80,7 +79,6 @@ h1 {
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    margin-top: 10px;
     font-size: 16px;
     transition: all 0.3s ease;
 }
